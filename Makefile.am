@@ -48,17 +48,14 @@ _SUBDIRS = \
 
 #if UHD or USRP1 defined, build Transceiver52M as well
 if UHD
-SUBDIRS = $(_SUBDIRS) \
-	  Transceiver52M
+SUBDIRS = $(_SUBDIRS) 
 UHD = 1
 else
 if USRP1
-SUBDIRS = $(_SUBDIRS) \
-	  Transceiver52M
+SUBDIRS = $(_SUBDIRS) 
 USRP1 = 1
 else
-SUBDIRS = $(_SUBDIRS) \
-	  TransceiverRAD1
+SUBDIRS = $(_SUBDIRS) 
 endif
 endif
 
@@ -71,14 +68,5 @@ EXTRA_DIST = \
 
 install: all
 	$(MAKE) -C ./apps install
-if UHD
-	$(MAKE) -C ./Transceiver52M install
-else
-if USRP1
-	$(MAKE) -C ./Transceiver52M install
-else
-	$(MAKE) -C ./TransceiverRAD1 install
-endif
-endif
 
 FORCE:
